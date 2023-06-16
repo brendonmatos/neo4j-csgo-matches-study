@@ -25,8 +25,7 @@ class InsertCSGO:
 
     def insert_player_country(self, player, country):
         with self.driver.session() as session:
-            greeting = session.execute_write(self._create_player_country, player, country)
-            print(greeting)
+            session.execute_write(self._create_player_country, player, country)
 
     @staticmethod
     def _create_player_country(tx, player, country):
