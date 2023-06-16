@@ -2,7 +2,7 @@ import mysql.connector
 import csv
 
 class InsertCSGO:
-    def __init__(self, host='127.0.0.1', user='root', password='mysql', database='csgo'):
+    def __init__(self, host='127.0.0.1', user='root', password='root', database='csgo'):
         self.connection = None
         self.host = host
         self.user = user
@@ -75,7 +75,7 @@ class InsertCSGO:
 
 
 if __name__ == "__main__":
-    greeter = InsertCSGO("127.0.0.1", "root", "mysql", "csgo")
+    greeter = InsertCSGO("127.0.0.1", "root", "root", "csgo")
 
     # Criar as tabelas
     create_tables_query = """
