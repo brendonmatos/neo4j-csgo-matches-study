@@ -1,0 +1,28 @@
+version: "2"
+
+networks:
+  local:
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql:8.0.33
+    networks:
+      - local
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: csgo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+  neo4j:
+    image: bitnami/neo4j:latest
+    networks:
+      - local
+    environment:
+      NEO4J_PASSWORD: "trabalhobd3"
+    ports:
+      - "7474:7474"
+      - "7473:7473"
+      - "7687:7687"
