@@ -21,11 +21,16 @@ docker-compose up -d
 4. Execute os scripts de inserção de dados
 
 ```bash
-python insertMysql.py
-python insertNeo4j.py
+python insert_mysql.py
+python insert_neo4j.py
 ```
 
 5. Acesse os bancos de dados
 
 Ambiente interativo do Neo4j: [http://localhost:7474/browser/](http://localhost:7474/browser/)
-MySQL: localhost:3306 //TODO
+
+MySQL: 
+  - url: `localhost:3306`
+  - user: `root`
+  - password: `root`
+  - database: `csgo`

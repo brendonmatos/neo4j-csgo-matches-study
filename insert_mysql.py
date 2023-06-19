@@ -104,7 +104,7 @@ if __name__ == "__main__":
     cursor.close()
 
     # Importar dados do arquivo CSV
-    greeter.import_csv("picks.csv")
+    greeter.import_csv("data/picks.csv")
     greeter.close()
     
 
