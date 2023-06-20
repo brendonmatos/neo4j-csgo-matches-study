@@ -117,7 +117,6 @@ if __name__ == "__main__":
     picks = picks.dropna()
     players = players.dropna()
 
-
     print ("Inserting teams...")
     teams = pd.concat([results['team_1'], results['team_2']]).drop_duplicates()
     count = 0
@@ -127,9 +126,6 @@ if __name__ == "__main__":
         if count % 100 == 0:
             print("Inserted " + str(count) + " teams")
     print ("Inserting teams... Done!")
-
-    
-
 
     print("Inserting countries...")
     countries = pd.concat([players['country']]).drop_duplicates()
@@ -147,23 +143,11 @@ if __name__ == "__main__":
     players_df = players_df.drop_duplicates(['player_name'])
     count = 0
     for index, row in players_df.iterrows():
-        # verify if player name is null or empty
-        if pd.isnull(row['player_name']) or row['player_name'] == '':
-            print("Player name is null or empty")
-            print(row)
-            continue
-
-        # verify if country is null or empty
-        if pd.isnull(row['country']) or row['country'] == '':
-            print("Country is null or empty for player " + row['player_name'])
-            continue
-
         inserter.insert_player_country(row['player_name'], row['country'])
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " players")
     print ("Inserting players... Done!")
-
 
     print ("Inserting matches...")
     count = 0
