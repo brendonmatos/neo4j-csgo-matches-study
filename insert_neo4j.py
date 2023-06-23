@@ -1,6 +1,5 @@
 from neo4j import GraphDatabase
 import pandas as pd
-import csv
 
 
 class InsertCSGO:
