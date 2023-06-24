@@ -116,7 +116,7 @@ if __name__ == "__main__":
     picks = picks.dropna()
     players = players.dropna()
 
-    print ("Inserting teams...")
+    print("Inserting teams...")
     teams = pd.concat([results['team_1'], results['team_2']]).drop_duplicates()
     count = 0
     for team in teams:
@@ -124,7 +124,7 @@ if __name__ == "__main__":
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " teams")
-    print ("Inserting teams... Done!")
+    print("Inserting teams... Done!")
 
     print("Inserting countries...")
     countries = pd.concat([players['country']]).drop_duplicates()
@@ -135,7 +135,7 @@ if __name__ == "__main__":
             print("Inserted " + str(count) + " countries")
     print("Inserting countries... Done!")
 
-    print ("Inserting players...")
+    print("Inserting players...")
     players_df = pd.DataFrame(columns=['player_name', 'country'])
     players_df['player_name'] = players['player_name']
     players_df['country'] = players['country']
@@ -146,9 +146,9 @@ if __name__ == "__main__":
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " players")
-    print ("Inserting players... Done!")
+    print("Inserting players... Done!")
 
-    print ("Inserting matches...")
+    print("Inserting matches...")
     count = 0
     matches_ids = results['match_id'].drop_duplicates()
     for match_id in matches_ids:
@@ -156,18 +156,18 @@ if __name__ == "__main__":
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " matches")
-    print ("Inserting matches... Done!")
+    print("Inserting matches... Done!")
 
-    print ("Inserting players matches...")
+    print("Inserting players matches...")
     count = 0
     for index, row in players.iterrows():
         inserter.insert_player_match(row['player_name'], row['match_id'])
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " players matches")
-    print ("Inserting players matches... Done!")
+    print("Inserting players matches... Done!")
 
-    print ("Inserting results...")
+    print("Inserting results...")
     count = 0
     for index, row in results.iterrows():
         match_id = row['match_id']
@@ -178,9 +178,9 @@ if __name__ == "__main__":
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " results")
-    print ("Inserting results... Done!")
+    print("Inserting results... Done!")
 
-    print ("Inserting picks...")
+    print("Inserting picks...")
     count = 0
     for index, row in picks.iterrows():
         team_1 = row['team_1']
@@ -192,7 +192,6 @@ if __name__ == "__main__":
         count += 1
         if count % 100 == 0:
             print("Inserted " + str(count) + " picks")
-    print ("Inserting picks... Done!")
-
+    print("Inserting picks... Done!")
 
     inserter.close()
