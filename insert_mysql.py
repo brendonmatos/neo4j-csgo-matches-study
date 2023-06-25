@@ -15,7 +15,8 @@ class InsertCSGO:
             host=self.host,
             user=self.user,
             password=self.password,
-            database=self.database
+            database=self.database,
+            port=3306
         )
 
     def close(self):
@@ -121,7 +122,7 @@ class InsertCSGO:
         return cursor.fetchall()
 
 if __name__ == "__main__":
-    greeter = InsertCSGO("127.0.0.1", "root", "root", "csgo")
+    greeter = InsertCSGO("localhost", "root", "root", "csgo")
 
     try:
         greeter.establish_connection()
