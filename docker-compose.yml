@@ -14,8 +14,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: csgo
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
   neo4j:
     image: bitnami/neo4j:latest
     networks:
